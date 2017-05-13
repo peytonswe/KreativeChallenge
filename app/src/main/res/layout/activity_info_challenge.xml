@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="@color/colorLogin">
 
     <TextView
         android:id="@+id/rating_text"
@@ -21,20 +22,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Bike Trip" />
+        android:text="Bike Trip"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/colorNameChallenge"
+        android:textSize="18sp"/>
 
 
     <TextView
         android:id="@+id/description_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:textColor="@color/colorDescription"
         android:text="Description" />
 
     <TextView
         android:id="@+id/date_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mar 6, 2017" />
+        android:textSize="15sp"
+        android:text="Mar 6, 2017"
+        android:textColor="@color/colorDate"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,8 +67,10 @@
 
     <Button
         android:id="@+id/submit_btn"
-        android:layout_width="215dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_submit" />
+        android:text="@string/btn_submit"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorLogin"/>
 
 </LinearLayout>

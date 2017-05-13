@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#2e7d32</color>
+    <color name="colorPrimaryDark">#1b5e20</color>
+    <color name="colorAccent">#4caf50</color>
+    <color name="colorLogin">#FFFFFF</color>
+    <color name="colorDescription">#000000</color>
 
+    <color name="colorNameChallenge">#004d40</color>
+    <color name="colorDate">#B4BAC0</color>
 
     <color name="valuation1">#4A7BA7</color>
 
