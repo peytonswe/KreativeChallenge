@@ -17,6 +17,7 @@
     <!--For activity_info_challenge-->
     <string name="btn_part">Participated</string>
     <string name="rate_challenge">Rate the Challenge</string>
+    <string name="btn_complete">Complete</string>
 
     <string-array name="rating">
         <item>1</item>
