@@ -16,8 +16,6 @@ public class AddChallengeActivity extends AppCompatActivity implements View.OnCl
     EditText etName, etDescription;
     Button btnAdd;
 
-    private DBHelper dbHelper;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +27,6 @@ public class AddChallengeActivity extends AppCompatActivity implements View.OnCl
         btnAdd = (Button) findViewById(R.id.btn_add);
         btnAdd.setOnClickListener(this);
 
-        dbHelper = new DBHelper(this);
-
     }
 
     @Override
@@ -41,13 +37,16 @@ public class AddChallengeActivity extends AppCompatActivity implements View.OnCl
         String name = etName.getText().toString();
         String description = etDescription.getText().toString();
 
+        DBHelper dbHelper = ChallengeActivity.getDbHelper();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        cv.put("name", name);
-        cv.put("description", description);
+        cv.put(ChallengesTable.COLUMN_CHALLENGE_NAME, name);
+        cv.put(ChallengesTable.COLUMN_CHALLENGE_DESCRIPTION, description);
 
         long rowID = db.insert("challenges", null, cv);
         Log.d(LOG_TAG, "row inserted, ID = " + rowID);
+
+        db.close();
 
     }
 }

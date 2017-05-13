@@ -21,7 +21,7 @@ public class ChallengeActivity extends AppCompatActivity implements View.OnClick
     private ChallengeAdapter mAdapter;
     private ListView challengeListView;
     private List<Challenge> challengeList;
-    private DBHelper dbHelper;
+    private static DBHelper dbHelper;
     private Button addChallenge;
 
     public static String CHALLENGE_ID = "challenge_id";
@@ -65,5 +65,9 @@ public class ChallengeActivity extends AppCompatActivity implements View.OnClick
         Intent intent = new Intent(ChallengeActivity.this, AddChallengeActivity.class);
         startActivity(intent);
 
+    }
+
+    public static DBHelper getDbHelper() {
+        return dbHelper;
     }
 }
