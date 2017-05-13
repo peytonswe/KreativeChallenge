@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Kreative Challenge</string>
+
+    <string name="add_challenge">Add Challenge</string>
+
+    <string name="add_name">Name</string>
+
+    <string name="add_description">Description</string>
+
+    <string name="btn_add">Add</string>
+</resources>
