@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class InfoChallengeActivity extends AppCompatActivity {
@@ -15,6 +17,8 @@ public class InfoChallengeActivity extends AppCompatActivity {
 
     private TextView ratingInfo, nameInfo, descriptionInfo, dateInfo;
     private DBHelper dbHelper;
+    private Button btnSubmit;
+    private Spinner spinnerRate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,9 @@ public class InfoChallengeActivity extends AppCompatActivity {
         descriptionInfo = (TextView) findViewById(R.id.description_text);
         dateInfo = (TextView) findViewById(R.id.date_text);
 
+        //rate challenge
+        btnSubmit = (Button) findViewById(R.id.btn_submit);
+        spinnerRate = (Spinner) findViewById(R.id.spinner_rate);
 
         dbHelper = ChallengeActivity.getDbHelper();
         SQLiteDatabase db = dbHelper.getWritableDatabase();

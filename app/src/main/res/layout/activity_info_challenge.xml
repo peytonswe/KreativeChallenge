@@ -34,6 +34,32 @@
         android:id="@+id/date_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mar 6, 2017"/>
+        android:text="Mar 6, 2017" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/rate_challenge"/>
+
+        <Spinner
+            android:id="@+id/spinner_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_dropdown"
+            android:entries="@array/rating"
+            android:spinnerMode="dialog" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submit_btn"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_submit" />
 
 </LinearLayout>
