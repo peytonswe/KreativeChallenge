@@ -8,4 +8,9 @@
     <string name="add_description">Description</string>
 
     <string name="btn_add">Add</string>
+
+    <!--For LoginActivity-->
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_surname">Enter Surname</string>
+    <string name="btn_submit">Submit</string>
 </resources>

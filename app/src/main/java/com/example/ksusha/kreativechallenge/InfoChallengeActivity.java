@@ -13,7 +13,8 @@ public class InfoChallengeActivity extends AppCompatActivity {
 
     final String LOG_TAG = InfoChallengeActivity.class.getSimpleName();
 
-    TextView ratingInfo, nameInfo, descriptionInfo, dateInfo;
+    private TextView ratingInfo, nameInfo, descriptionInfo, dateInfo;
+    private DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class InfoChallengeActivity extends AppCompatActivity {
         dateInfo = (TextView) findViewById(R.id.date_text);
 
 
-        DBHelper dbHelper = ChallengeActivity.getDbHelper();
+        dbHelper = ChallengeActivity.getDbHelper();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         Intent intent = getIntent();

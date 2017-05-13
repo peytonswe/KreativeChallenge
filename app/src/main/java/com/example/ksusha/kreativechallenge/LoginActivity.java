@@ -9,45 +9,44 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class AddChallengeActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    final String LOG_TAG = AddChallengeActivity.class.getSimpleName();
+    final String LOG_TAG = LoginActivity.class.getSimpleName();
 
-    private EditText etName, etDescription;
-    private Button btnAdd;
+    private EditText enterName, enterSurname;
+    private Button btnSubmit;
     private DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_challenge);
+        setContentView(R.layout.activity_login);
 
-        etName = (EditText) findViewById(R.id.add_name);
-        etDescription = (EditText) findViewById(R.id.add_description);
+        enterName = (EditText) findViewById(R.id.enter_name);
+        enterSurname = (EditText) findViewById(R.id.enter_surname);
 
-        btnAdd = (Button) findViewById(R.id.btn_add);
-        btnAdd.setOnClickListener(this);
+        btnSubmit = (Button) findViewById(R.id.btn_submit);
+        btnSubmit.setOnClickListener(this);
+
 
     }
 
     @Override
     public void onClick(View v) {
-
         ContentValues cv = new ContentValues();
 
-        String name = etName.getText().toString();
-        String description = etDescription.getText().toString();
+        String userName = enterName.getText().toString();
+        String userSurname = enterSurname.getText().toString();
 
         dbHelper = ChallengeActivity.getDbHelper();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        cv.put(ChallengesTable.COLUMN_CHALLENGE_NAME, name);
-        cv.put(ChallengesTable.COLUMN_CHALLENGE_DESCRIPTION, description);
+        cv.put(UsersTable.COLUMN_USER_NAME, userName);
+        cv.put(UsersTable.COLUMN_USER_SURNAME, userSurname);
 
         long rowID = db.insert("challenges", null, cv);
         Log.d(LOG_TAG, "row inserted, ID = " + rowID);
 
         db.close();
-
     }
 }
