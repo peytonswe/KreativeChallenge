@@ -28,7 +28,7 @@ public class ChallengeAdapter extends ArrayAdapter<Challenge> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View listItemView = convertView;
-        if(listItemView == null) {
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
         }
@@ -73,42 +73,42 @@ public class ChallengeAdapter extends ArrayAdapter<Challenge> {
     }
 
     private int getValuationColor(double ratingNum) {
-        int magnitudeColorResourceId;
-        int magnitudeFloor = (int) Math.floor(ratingNum);
-        switch (magnitudeFloor) {
+        int valuationColorResourceId;
+        int valuationFloor = (int) Math.floor(ratingNum);
+        switch (valuationFloor) {
             case 0:
             case 1:
-                magnitudeColorResourceId = R.color.valuation1;
+                valuationColorResourceId = R.color.valuation1;
                 break;
             case 2:
-                magnitudeColorResourceId = R.color.valuation2;
+                valuationColorResourceId = R.color.valuation2;
                 break;
             case 3:
-                magnitudeColorResourceId = R.color.valuation3;
+                valuationColorResourceId = R.color.valuation3;
                 break;
             case 4:
-                magnitudeColorResourceId = R.color.valuation4;
+                valuationColorResourceId = R.color.valuation4;
                 break;
             case 5:
-                magnitudeColorResourceId = R.color.valuation5;
+                valuationColorResourceId = R.color.valuation5;
                 break;
             case 6:
-                magnitudeColorResourceId = R.color.valuation6;
+                valuationColorResourceId = R.color.valuation6;
                 break;
             case 7:
-                magnitudeColorResourceId = R.color.valuation7;
+                valuationColorResourceId = R.color.valuation7;
                 break;
             case 8:
-                magnitudeColorResourceId = R.color.valuation8;
+                valuationColorResourceId = R.color.valuation8;
                 break;
             case 9:
-                magnitudeColorResourceId = R.color.valuation9;
+                valuationColorResourceId = R.color.valuation9;
                 break;
             default:
-                magnitudeColorResourceId = R.color.valuation10;
+                valuationColorResourceId = R.color.valuation10;
                 break;
         }
-        return ContextCompat.getColor(getContext(), magnitudeColorResourceId);
+        return ContextCompat.getColor(getContext(), valuationColorResourceId);
     }
 
 }
