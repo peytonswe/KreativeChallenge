@@ -24,6 +24,7 @@ import com.example.ksusha.kreativechallenge.entities.User;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -44,12 +45,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         TelephonyManager tManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         uuid = tManager.getDeviceId();
 
-        if (isExist()) {
-            Intent intent = new Intent(LoginActivity.this, ChallengeActivity.class);
-            startActivity(intent);
-            finish();
-            return;
-        }
+
+        ApiService.instance.getResponse(uuid).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.code() == 200) {
+                    Intent intent = new Intent(LoginActivity.this, ChallengeActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Network Error", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         setContentView(R.layout.activity_login);
 
@@ -106,12 +117,4 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         startActivity(intent);
     }
 
-    public boolean isExist() {
-        SQLiteDatabase db = AppClass.getDbHelper().getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT * FROM " + UsersTable.TABLE_NAME, null);
-        boolean exist = (c.getCount() > 0);
-        c.close();
-        db.close();
-        return exist;
-    }
 }
