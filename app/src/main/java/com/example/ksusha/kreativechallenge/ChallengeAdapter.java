@@ -43,7 +43,7 @@ public class ChallengeAdapter extends ArrayAdapter<Challenge> {
         GradientDrawable ratingCircle = (GradientDrawable) ratingTextView.getBackground();
 
         // Get the appropriate background color based on the current earthquake magnitude
-        int ratingColor = getMagnitudeColor(currentChallenge.getRating());
+        int ratingColor = getValuationColor(currentChallenge.getRating());
 
         // Set the color on the magnitude circle
         ratingCircle.setColor(ratingColor);
@@ -72,9 +72,9 @@ public class ChallengeAdapter extends ArrayAdapter<Challenge> {
         return dateFormat.format(dateObject);
     }
 
-    private int getMagnitudeColor(double magNumber) {
+    private int getValuationColor(double ratingNum) {
         int magnitudeColorResourceId;
-        int magnitudeFloor = (int) Math.floor(magNumber);
+        int magnitudeFloor = (int) Math.floor(ratingNum);
         switch (magnitudeFloor) {
             case 0:
             case 1:

@@ -20,6 +20,25 @@
         android:maxLines="5"
         android:inputType="textCapSentences"/>
 
+    <EditText
+        android:id="@+id/add_latitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Latitude"
+        android:maxLines="5"
+        android:visibility="gone"
+        android:inputType="textCapSentences"/>
+
+    <EditText
+        android:id="@+id/add_longitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Longitude"
+        android:visibility="gone"
+        android:maxLines="5"
+        android:inputType="textCapSentences"/>
+
+
     <Button
         android:layout_marginTop="20dp"
         android:id="@+id/btn_add"

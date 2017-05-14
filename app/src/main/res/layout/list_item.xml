@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:padding="20dp"
-    android:background="@color/colorLogin">
+    android:background="@color/colorLogin"
+    android:padding="20dp">
 
 
     <TextView
         android:id="@+id/challenge_rating"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_centerVertical="true"
         android:background="@drawable/magnitude_circle"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
@@ -22,10 +22,13 @@
         android:id="@+id/challenge_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/challenge_date"
+        android:layout_toRightOf="@+id/challenge_rating"
         android:layout_weight="5"
         android:ellipsize="end"
-        android:maxLines="2"
         android:fontFamily="sans-serif-medium"
+        android:maxLines="2"
         android:paddingLeft="20dp"
         android:text="Bike Trip"
         android:textColor="@color/colorNameChallenge"
@@ -33,10 +36,11 @@
 
     <TextView
         android:id="@+id/challenge_date"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:textSize="15sp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
         android:text="Mar 6, 2017"
-        android:textColor="@color/colorDate"/>
-</LinearLayout>
+        android:textColor="@color/colorDate"
+        android:textSize="15sp" />
+</RelativeLayout>

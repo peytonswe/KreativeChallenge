@@ -2,53 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorLogin"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:background="@color/colorLogin">
-
-    <TextView
-        android:id="@+id/rating_text"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="@drawable/magnitude_circle"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:text="2"
-        android:textColor="@android:color/white"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/name_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Bike Trip"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/colorNameChallenge"
-        android:textSize="18sp"/>
-
-
-    <TextView
-        android:id="@+id/description_text"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textSize="15sp"
-        android:textColor="@color/colorDescription"
-        android:text="Description" />
-
-    <TextView
-        android:id="@+id/date_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:text="Mar 6, 2017"
-        android:textColor="@color/colorDate"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_complete"/>
+    android:padding="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,26 +12,87 @@
         android:orientation="horizontal">
 
         <TextView
-            android:gravity="center_vertical"
+            android:id="@+id/rating_text"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/magnitude_circle"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="2"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Mar 6, 2017"
+            android:textColor="@color/colorDate"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/name_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal"
+        android:text="Bike Trip"
+        android:textColor="@color/colorNameChallenge"
+        android:textSize="18sp" />
+
+
+    <TextView
+        android:id="@+id/description_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Description"
+
+        android:textColor="@color/colorDescription"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/rate_challenge"/>
+            android:gravity="center_vertical"
+            android:text="@string/rate_challenge"
+            android:textColor="@color/colorNameChallenge" />
 
         <Spinner
             android:id="@+id/spinner_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:background="@android:drawable/btn_dropdown"
             android:entries="@array/rating"
             android:spinnerMode="dialog" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_submit"
+            android:textColor="@color/colorNameChallenge"
+            android:background="@color/colorLogin"/>
+
     </LinearLayout>
 
+
     <Button
-        android:id="@+id/submit_btn"
+        android:id="@+id/btn_complete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_submit"
         android:background="@color/colorPrimary"
-        android:textColor="@color/colorLogin"/>
+        android:text="@string/btn_complete"
+        android:textColor="@color/colorLogin" />
 
 </LinearLayout>

@@ -17,6 +17,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -39,25 +40,27 @@ public interface ApiService {
 
     @GET("/challenge/{id}")
     @Headers("UUID: 5555-5555-5555-5555")
-    Call<Challenge> getChallenge(@Query("id") int id);
+    Call<Challenge> getChallenge(@Path("id") int id);
 
     @FormUrlEncoded
     @POST("/register")
     @Headers("UUID: 5555-5555-5555-5555")
     Call<User> register(@Field("firstName") String firstName, @Field("lastName") String lastName);
 
-
+    @FormUrlEncoded
     @POST("/challenge/add")
     @Headers("UUID: 5555-5555-5555-5555")
-    Call<ResponseBody> getChallenge();
+    Call<ResponseBody> addChallenge(@Field("title") String title, @Field("description") String description,
+                                    @Field("latitude") double latitude, @Field("longitude") double longitude);
 
     @POST("/challenge/{id}/complete")
     @Headers("UUID: 5555-5555-5555-5555")
-    Call<ResponseBody> getChallengeComplete(@Query("id") int id);
+    Call<ResponseBody> getChallengeComplete(@Path("id") int id);
 
-    @POST("/challenge/{id}/rating")
+    @FormUrlEncoded
+    @POST("/challenge/{id}/rate")
     @Headers("UUID: 5555-5555-5555-5555")
-    Call<ResponseBody> getChallengeRating(@Query("id") int id);
+    Call<ResponseBody> getChallengeRating(@Path("id") int id, @Field("rating") String rating);
 
 
 }
