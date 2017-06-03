@@ -3,26 +3,17 @@ package com.example.ksusha.kreativechallenge.activities;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.ksusha.kreativechallenge.ApiService;
-import com.example.ksusha.kreativechallenge.AppClass;
-import com.example.ksusha.kreativechallenge.DBHelper;
 import com.example.ksusha.kreativechallenge.R;
-import com.example.ksusha.kreativechallenge.UsersTable;
-import com.example.ksusha.kreativechallenge.entities.Challenge;
 import com.example.ksusha.kreativechallenge.entities.User;
-
-import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -84,8 +75,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onResponse(Call<User> call, Response<User> response) {
 
                 if (response.isSuccessful()) {
-                    User user = response.body();
-                    createUser(user);
+                    Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                 }
@@ -98,23 +88,4 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         });
     }
-
-    private void createUser(User user) {
-        cv = new ContentValues();
-
-        //dbHelper = ChallengeActivity.getDbHelper();
-        SQLiteDatabase db = AppClass.getDbHelper().getWritableDatabase();
-
-        cv.put(UsersTable.COLUMN_USER_NAME, user.getUserName());
-        cv.put(UsersTable.COLUMN_USER_SURNAME, user.getUserSurname());
-
-        long rowID = db.insert("challenges", null, cv);
-        Log.d(LOG_TAG, "row inserted, ID = " + rowID);
-
-        db.close();
-
-        Intent intent = new Intent(LoginActivity.this, ChallengeActivity.class);
-        startActivity(intent);
-    }
-
 }

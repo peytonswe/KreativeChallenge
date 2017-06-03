@@ -1,27 +1,17 @@
 package com.example.ksusha.kreativechallenge.activities;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ksusha.kreativechallenge.ApiService;
-import com.example.ksusha.kreativechallenge.AppClass;
-import com.example.ksusha.kreativechallenge.ChallengesTable;
-import com.example.ksusha.kreativechallenge.DBHelper;
 import com.example.ksusha.kreativechallenge.R;
 import com.example.ksusha.kreativechallenge.entities.Challenge;
 
@@ -34,10 +24,9 @@ import retrofit2.Response;
 
 public class InfoChallengeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    final String LOG_TAG = InfoChallengeActivity.class.getSimpleName();
+    private static final String LOG_TAG = InfoChallengeActivity.class.getSimpleName();
 
     private TextView ratingInfo, nameInfo, descriptionInfo, dateInfo;
-    //private DBHelper dbHelper;
     private Button btnSubmit, btnComplete;
     private Spinner spinnerRate;
     private Challenge challenge;
@@ -63,9 +52,6 @@ public class InfoChallengeActivity extends AppCompatActivity implements View.OnC
         btnComplete = (Button) findViewById(R.id.btn_complete);
         btnComplete.setOnClickListener(this);
 
-        //dbHelper = ChallengeActivity.getDbHelper();
-        //SQLiteDatabase db = AppClass.getDbHelper().getWritableDatabase();
-
         Intent intent = getIntent();
         challenge = intent.getParcelableExtra(Challenge.class.getSimpleName());
 
@@ -73,24 +59,6 @@ public class InfoChallengeActivity extends AppCompatActivity implements View.OnC
         nameInfo.setText(challenge.getName());
         descriptionInfo.setText(challenge.getDescription());
         dateInfo.setText(formatDate(challenge.getDate()).toString());
-
-        /*String selection = "_ID = ?";
-        String[] selectionArgs = new String[] {challengeId};
-        Cursor c = db.query("challenges", null, selection, selectionArgs, null, null, null);
-
-
-        if (c.moveToFirst()) {
-            do {
-                ratingInfo.setText(String.valueOf(c.getDouble(c.getColumnIndex(ChallengesTable.COLUMN_CHALLENGE_RATING))));
-                nameInfo.setText(c.getString(c.getColumnIndex(ChallengesTable.COLUMN_CHALLENGE_NAME)));
-                descriptionInfo.setText(c.getString(c.getColumnIndex(ChallengesTable.COLUMN_CHALLENGE_DESCRIPTION)));
-                dateInfo.setText(String.valueOf(c.getLong(c.getColumnIndex(ChallengesTable.COLUMN_CHALLENGE_DATE))));
-            } while (c.moveToNext());
-        } else {
-            Log.d(LOG_TAG, "0 rows");
-        }
-        c.close();
-        dbHelper.close();*/
     }
 
     private String formatDate(long dateObject) {

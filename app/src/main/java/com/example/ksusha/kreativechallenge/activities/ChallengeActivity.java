@@ -1,13 +1,9 @@
 package com.example.ksusha.kreativechallenge.activities;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
@@ -16,9 +12,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.ksusha.kreativechallenge.ApiService;
-import com.example.ksusha.kreativechallenge.AppClass;
 import com.example.ksusha.kreativechallenge.ChallengeAdapter;
-import com.example.ksusha.kreativechallenge.DBHelper;
 import com.example.ksusha.kreativechallenge.R;
 import com.example.ksusha.kreativechallenge.entities.Challenge;
 
@@ -35,7 +29,6 @@ public class ChallengeActivity extends AppCompatActivity implements View.OnClick
 
     private ChallengeAdapter mAdapter;
     private ListView challengeListView;
-    //private static DBHelper dbHelper;
     private Button addChallenge;
     private String uuid;
 
@@ -46,11 +39,9 @@ public class ChallengeActivity extends AppCompatActivity implements View.OnClick
 
         TelephonyManager tManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         uuid = tManager.getDeviceId();
-        //SQLiteDatabase sqLiteDatabase = AppClass.getDbHelper().getWritableDatabase();
 
         challengeListView = (ListView) findViewById(R.id.list);
 
-        //Add challenge button
         addChallenge = (Button) findViewById(R.id.add_challenge);
         addChallenge.setOnClickListener(this);
 
